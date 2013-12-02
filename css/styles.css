@@ -1,0 +1,247 @@
+/** 
+ * CSCI E-15 Project 2
+ * Ed Hebert ehebert@fas.harvard.edu 
+ *
+ * Note - Twitter Bootstrap is used on this app, and many of these styles
+ * are overrides of Bootstrap defaults
+ */
+
+/**
+ * Sticky footer 
+ */
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -120px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 120px;
+}
+#footer {
+    background-color: #3C4789;
+    border-top: 5px solid #FFB608;
+    color: #fff;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+} 
+
+
+/**
+ * General, sitewise styles 
+ */
+
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+	font-weight: bold;
+	color: #3C4789;
+}
+
+.centered {
+	text-align: center;
+}
+
+a, a:visited {
+	transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	-ms-transition: all 0.2s ease-in-out 0s;
+}
+
+#footer a, #footer a:visited, .unfollow a, .unfollow a:visited {
+	color: #FFB608;
+}
+
+#footer a:hover {
+	color: #FFFBEC;
+}
+
+.well {
+	background-color: #FFFBEC;
+	border-color: #B7B4C5;
+	margin: 0 20px 50px;
+}
+
+.page-header {
+	border-bottom: 1px solid #B7B4C5;
+}
+
+.right {
+	text-align: right;
+}
+
+
+/**
+ * Main menu navigation styles 
+ */
+
+.navbar-inverse {
+	background-color: #3C4789;
+	border-bottom: 5px solid #FFB608;
+	margin-bottom: 50px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #ddd;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: #fff;
+}
+
+.navbar-nav {
+	padding-top: 10px;
+}
+
+/* collapsed */
+.navbar-inverse .navbar-toggle {
+	border-color: #ddd;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+background-color: #a1aadd;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+border-color: #ddd;
+}
+
+
+/**
+ * Branding 
+ */
+
+.navbar-inverse .navbar-brand {
+	font-size: 36px;
+	color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover {
+	color: #FFB608;
+}
+
+
+/**
+ * Form page styles 
+ */
+
+ textarea {
+ 		resize: none;
+ }
+
+.callout-error {
+	padding: 20px;
+	border-left: 5px;
+	background-color: #FFE8C7;
+	border-left: 5px solid #FFB608;
+	margin-bottom: 20px;
+}
+
+.form-control {
+	border: 1px solid #B7B4C5;
+}
+
+.form-control:focus {
+	border-color: #FFB608;
+	outline: 0;
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(218,155,7,0.6);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(218,155,7,0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(218,155,7,0.6);
+}
+
+
+/* Button customization assistance via http://twitterbootstrap3buttons.w3masters.nl/ */
+.btn-custom {
+	background-color: #3C4789;
+	border-color: #3C4789;
+	color: #fff;
+	margin: 20px 0 20px 0;
+	transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	-ms-transition: all 0.2s ease-in-out 0s;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.unfollow a:hover {
+	background-color: #FFB608;
+	border-color: #FFB608;
+	color: #3C4789;
+}
+
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+	background-color: #3C4789;
+	border-color: #3C4789;
+	color: #fff;
+}
+
+/**
+ * Posts
+ */
+
+ .avatar{
+ 	border: 1px solid #3C4789;
+ 	margin-top: 15px;
+ }
+
+ .post {
+ 	background-color: #FFF3CA;
+ }
+
+ .postform {
+ 	margin: 0 25px;
+ }
+
+ /**
+  * Posts / Users
+  */
+
+.caption {
+    text-align: center;
+}
+
+.thumbnail {
+    background-color: #FFF3CA;
+    margin-bottom: 20px;
+}
