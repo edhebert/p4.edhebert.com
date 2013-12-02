@@ -7,7 +7,6 @@
 
         <!-- Google Web Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Snowburst+One' rel='stylesheet' type='text/css'>
 
         <!-- Bootstrap -->
         <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
