@@ -13,7 +13,7 @@ class rhyme_controller extends base_controller {
         $this->template->title   = "Let's Rhyme";
 
         // include access to the Wordnik API
-        require('/wordnik/Swagger.php');
+        require($_SERVER['DOCUMENT_ROOT'] . '/wordnik/Swagger.php');
         $myAPIKey = '1aa94b552058e254ba72b0fb2dc0bba89c925fe4037896b95';
         $client = new APIClient($myAPIKey, 'http://api.wordnik.com/v4');
 
