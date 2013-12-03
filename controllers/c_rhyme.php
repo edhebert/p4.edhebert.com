@@ -6,7 +6,11 @@ class rhyme_controller extends base_controller {
         parent::__construct();
     } 
 
-    public function index() {
+    public function index($error = NULL) {
+
+        // Setup view
+        $this->template->content = View::instance('v_rhyme_index');
+        $this->template->title   = "Let's Rhyme";
 
         // include access to the Wordnik API
         require('/wordnik/Swagger.php');
@@ -37,8 +41,20 @@ class rhyme_controller extends base_controller {
         while (count($result[0]->words) < NUM_RHYMES); 
 
         $rhymes = $result[0]->words;
-        print($canonical . '<br><br>');
-        print_r($rhymes);
+
+        # Pass data to the View
+        $this->template->content->word = $canonical;
+        $this->template->content->rhymes = $rhymes;
+
+        # pass errors, if any
+        $this->template->content->error = $error;
+
+        # Render the View
+        echo $this->template;
+
+        
+        // print($canonical . '<br><br>');
+        // print_r($rhymes);
     }    
 
 }
