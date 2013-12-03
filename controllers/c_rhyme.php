@@ -58,3 +58,5 @@ class rhyme_controller extends base_controller {
     }    
 
 }
+
+?>
