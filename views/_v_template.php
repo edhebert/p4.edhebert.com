@@ -30,71 +30,25 @@
         </script>
     </head>
 
-    <body>
+    <body id="hero">
         <!-- Sticky footer wrapper -->	
         <div id="wrap">
-            <!-- nav -->
-            <header class="navbar navbar-inverse navbar-static-top" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a href="/" class="navbar-brand">RymrTymr</a>
-                    </div>
-                    <nav class="collapse navbar-collapse pull-right" role="navigation">
-                        <ul class="nav navbar-nav">
-                            <?php if ($user) : ?>
-                                <li>
-                                    <a href='/posts'>View &amp; Add Posts</a>
-                                </li>  
-                                <li>
-                                    <a href='/posts/users'>Follow Others</a>
-                                </li>                                                           
-                                <li>
-                                    <a href='/users/profile'>Edit Your Profile</a>
-                                </li>
-                                <li>
-                                    <a href='/users/logout'>Logout</a>
-                                </li>
-                            <?php else: ?>
-                                <li>
-                                    <a href='/users/signup'>Sign up</a>
-                                </li>
-                                <li>
-                                    <a href='/users/login'>Log in</a>
-                                </li>
-                            <?php endif; ?>
-                        </ul>
-                    </nav>
-                </div> <!-- container -->
+        
+            <header>
+                <h1><a href="/">RymrTymr - a rhyming game.</a></h1>
             </header>
 
             <div class="container">
-                <div class="row well well-lg">
-                    <?php if(isset($content)) echo $content; ?>
-                </div> <!-- well -->
-            </div> <!-- container -->
-            
-            <div id="push"></div> <!-- sticky footer push -->
-            
+                <?php if(isset($content)) echo $content; ?>
+            </div> <!-- container -->                   
+
+            <div id="push"></div> <!-- sticky footer push -->            
         </div> <!-- wrap -->   
         
         <div id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-6">
-                        <p>RymrTymr<br>DWA Project 4<br>
-                        Ed Hebert<br>
-                        <a href="mailto:ehebert@fas.harvard.edu">ehebert@fas.harvard.edu</a>
-                        </p>
-                    </div>
-                    <div class="col-xs-6">
 
-                    </div>
                 </div>
             </div>
         </div> <!-- footer -->

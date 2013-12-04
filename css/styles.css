@@ -31,8 +31,13 @@ body {
     height: 120px;
 }
 #footer {
-    background-color: #3C4789;
-    border-top: 5px solid #FFB608;
+    z-index: 1;
+    background-color: #f9776c;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9776c), color-stop(100%, #f75246)),#f9776c;
+    background: -webkit-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: -moz-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: -o-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: linear-gradient(#f9776c,#f75246),#f9776c;
     color: #fff;
     padding-top: 10px;
     font-size: 12px;
@@ -57,10 +62,55 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-family: 'Roboto', sans-serif;
 }
 
+.placeholder {
+    font-size: 100px;
+    padding-top: 22%;
+    text-shadow: 3px 3px 5px #333;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 11px 0;
+    z-index: 1;
+    background-color: #f9776c;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9776c), color-stop(100%, #f75246)),#f9776c;
+    background: -webkit-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: -moz-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: -o-linear-gradient(#f9776c,#f75246),#f9776c;
+    background: linear-gradient(#f9776c,#f75246),#f9776c;
+    -webkit-box-shadow: inset rgba(255,255,255,0.3) 0 1px 0,inset rgba(0,0,0,0.12) 0 -1px 0,rgba(0,0,0,0.3) 0 1px 2px;
+    -moz-box-shadow: inset rgba(255,255,255,0.3) 0 1px 0,inset rgba(0,0,0,0.12) 0 -1px 0,rgba(0,0,0,0.3) 0 1px 2px;
+    box-shadow: inset rgba(255,255,255,0.3) 0 1px 0,inset rgba(0,0,0,0.12) 0 -1px 0,rgba(0,0,0,0.3) 0 1px 2px;
+}
+
+header h1 a {
+    display: block;
+    margin: 0 auto;
+    width: 176px;
+    height: 42px;
+    text-indent: -9999px;
+    background: transparent url(../img/logo.png) no-repeat center top;
+}
+
 h1, h2, h3, h4, h5, h6, label {
 	font-weight: bold;
-	color: #3C4789;
+	color: #FFF;
 }
+
+body {
+    background: transparent url(../img/rhyme.jpg) no-repeat center top;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, rgba(0,0,0,0.3)), color-stop(100%, rgba(0,0,0,0.8))),url(../img/rhyme.jpg) no-repeat center top;
+    background: -webkit-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: -moz-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: -o-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 
 .centered {
 	text-align: center;
@@ -97,40 +147,7 @@ a, a:visited {
 }
 
 
-/**
- * Main menu navigation styles 
- */
 
-.navbar-inverse {
-	background-color: #3C4789;
-	border-bottom: 5px solid #FFB608;
-	margin-bottom: 50px;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-	color: #ddd;
-}
-
-.navbar-inverse .navbar-nav>li>a:hover {
-	color: #fff;
-}
-
-.navbar-nav {
-	padding-top: 10px;
-}
-
-/* collapsed */
-.navbar-inverse .navbar-toggle {
-	border-color: #ddd;
-}
-
-.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-background-color: #a1aadd;
-}
-
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-border-color: #ddd;
-}
 
 
 /**
