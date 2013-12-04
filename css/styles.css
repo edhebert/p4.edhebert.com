@@ -33,11 +33,11 @@ body {
 #footer {
     z-index: 1;
     background-color: #f9776c;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9776c), color-stop(100%, #f75246)),#f9776c;
-    background: -webkit-linear-gradient(#f9776c,#f75246),#f9776c;
-    background: -moz-linear-gradient(#f9776c,#f75246),#f9776c;
-    background: -o-linear-gradient(#f9776c,#f75246),#f9776c;
-    background: linear-gradient(#f9776c,#f75246),#f9776c;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f75246), color-stop(100%, #f44033)),#f75246;
+    background: -webkit-linear-gradient(#f75246,#f44033),#f75246;
+    background: -moz-linear-gradient(#f75246,#f44033),#f75246;
+    background: -o-linear-gradient(#f75246,#f44033),#f75246;
+    background: linear-gradient(#f75246,#f44033),#f75246;
     color: #fff;
     padding-top: 10px;
     font-size: 12px;
