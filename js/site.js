@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-    // position hero copy
+    // position welcome message
     $('#herocopy').center();
 
     // animate  homepage elements (for those with JS)
@@ -15,6 +14,11 @@ $(document).ready(function() {
     setTimeout(function() {
         $('#playbtn').fadeIn('slow')
     }, 2500);
+
+    // reposition welcome message on resize
+    $(window).resize(function() {
+        $('#herocopy').center();
+    });
 });
 
 jQuery.fn.center = function () {
