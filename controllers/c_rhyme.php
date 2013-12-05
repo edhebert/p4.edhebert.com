@@ -8,10 +8,6 @@ class rhyme_controller extends base_controller {
 
     public function index($error = NULL) {
 
-        // Setup view
-        $this->template->content = View::instance('v_rhyme_index');
-        $this->template->title   = "Let's Rhyme";
-
         // include access to the Wordnik API
         require($_SERVER['DOCUMENT_ROOT'] . '/wordnik/Swagger.php');
         $myAPIKey = '1aa94b552058e254ba72b0fb2dc0bba89c925fe4037896b95';
@@ -41,6 +37,18 @@ class rhyme_controller extends base_controller {
         while (count($result[0]->words) < NUM_RHYMES); 
 
         $rhymes = $result[0]->words;
+
+        // Setup view
+        $this->template->content = View::instance('v_rhyme_index');
+        $this->template->title   = "Let's Rhyme";
+
+        # // special css for the rhyming page
+        $client_files_head = Array(
+            '/css/rhyme.css'
+            );
+
+        # Use load_client_files to generate the links from the above array
+        $this->template->client_files_head = Utils::load_client_files($client_files_head);  
 
         # Pass data to the View
         $this->template->content->word = $canonical;

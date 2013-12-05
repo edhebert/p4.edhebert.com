@@ -1,0 +1,12 @@
+body{
+    background: transparent url(../img/rhyme2.jpg) no-repeat center top;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, rgba(0,0,0,0.5)), color-stop(100%, rgba(0,0,0,0.8))),url(../img/rhyme2.jpg) no-repeat center top;
+    background: -webkit-linear-gradient(rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme2.jpg) no-repeat center top;
+    background: -moz-linear-gradient(rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme2.jpg) no-repeat center top;
+    background: -o-linear-gradient(rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme2.jpg) no-repeat center top;
+    background: linear-gradient(rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme2.jpg) no-repeat center top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
