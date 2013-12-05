@@ -149,12 +149,6 @@ a, a:visited {
 	color: #FFFBEC;
 }
 
-.well {
-	background-color: #FFFBEC;
-	border-color: #B7B4C5;
-	margin: 0 20px 50px;
-}
-
 .page-header {
 	border-bottom: 1px solid #B7B4C5;
 }
@@ -196,7 +190,6 @@ a, a:visited {
 /* Button customization assistance via http://twitterbootstrap3buttons.w3masters.nl/ */
 .btn-custom {
 	background-color: #E2F64C;
-	border-color: #E2F64C;
 	color: #fff;
 	margin: 20px 0 20px 0;
     transition: background-color 0.2s, color 0.2s;
@@ -212,7 +205,6 @@ a, a:visited {
 .btn-custom.active,
 {
 	background-color: #FFB608;
-	border-color: #FFB608;
 	color: #E2F64C;
 }
 
@@ -229,7 +221,6 @@ fieldset[disabled] .btn-custom:focus,
 fieldset[disabled] .btn-custom:active,
 fieldset[disabled] .btn-custom.active {
 	background-color: #E2F64C;
-	border-color: #E2F64C;
 	color: #fff;
 }
 
@@ -239,6 +230,17 @@ fieldset[disabled] .btn-custom.active {
     color: #333;
     font-size: 24px;
     box-shadow: 3px 3px 5px #333;
+    transition: background-color 0.2s, color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s;    
+}
+
+#playbtn:hover,
+#playbtn:focus,
+#playbtn:active {
+    background-color: #F3FFA4;
 }
 
 /**
