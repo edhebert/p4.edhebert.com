@@ -30,19 +30,7 @@ body {
 #footer {
     height: 30px;
 }
-#footer {
-    z-index: 1;
-    background-color: #f9776c;
-    border-top: 1px solid #666;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f75246), color-stop(100%, #f44033)),#f75246;
-    background: -webkit-linear-gradient(#f75246,#f44033),#f75246;
-    background: -moz-linear-gradient(#f75246,#f44033),#f75246;
-    background: -o-linear-gradient(#f75246,#f44033),#f75246;
-    background: linear-gradient(#f75246,#f44033),#f75246;
-    color: #fff;
-    padding-top: 10px;
-    font-size: 12px;
-}
+
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
@@ -59,13 +47,30 @@ body {
  * General, sitewise styles 
  */
 
-body, h1, h2, h3, h4, h5, h6 {
-	font-family: 'Roboto', sans-serif;
+body {
+    color: #fff;
+    font-size: 18px;
+    font-family: "calluna";
+    font-weight: 400;    
+    background: transparent url(../img/rhyme.jpg) no-repeat center top;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, rgba(0,0,0,0.3)), color-stop(100%, rgba(0,0,0,0.8))),url(../img/rhyme.jpg) no-repeat center top;
+    background: -webkit-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: -moz-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: -o-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    background: linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.placeholder {
+h1, h2, h3, h4, h5, h6 {
+	font-family: "calluna-sans";
+    font-weight: 700;
+}
+
+#herocopy h2 {
     font-size: 100px;
-    padding-top: 22%;
     text-shadow: 3px 3px 5px #333;
 }
 
@@ -95,24 +100,34 @@ header h1 a {
     background: transparent url(../img/logo.png) no-repeat center top;
 }
 
+#herocopy {
+    height: 250px;
+}
+
+#herocopy h2 {
+    font-size: 100px;
+    text-shadow: 3px 3px 5px #333;
+}
+
+
+#footer {
+    z-index: 1;
+    background-color: #f9776c;
+    border-top: 1px solid #666;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f75246), color-stop(100%, #f44033)),#f75246;
+    background: -webkit-linear-gradient(#f75246,#f44033),#f75246;
+    background: -moz-linear-gradient(#f75246,#f44033),#f75246;
+    background: -o-linear-gradient(#f75246,#f44033),#f75246;
+    background: linear-gradient(#f75246,#f44033),#f75246;
+    color: #fff;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
 h1, h2, h3, h4, h5, h6, label {
 	font-weight: bold;
 	color: #FFF;
 }
-
-body {
-    background: transparent url(../img/rhyme.jpg) no-repeat center top;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, rgba(0,0,0,0.3)), color-stop(100%, rgba(0,0,0,0.8))),url(../img/rhyme.jpg) no-repeat center top;
-    background: -webkit-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
-    background: -moz-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
-    background: -o-linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
-    background: linear-gradient(rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%),url(../img/rhyme.jpg) no-repeat center top;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 
 .centered {
 	text-align: center;
@@ -149,23 +164,6 @@ a, a:visited {
 }
 
 
-
-
-
-/**
- * Branding 
- */
-
-.navbar-inverse .navbar-brand {
-	font-size: 36px;
-	color: #fff;
-}
-
-.navbar-inverse .navbar-brand:hover {
-	color: #FFB608;
-}
-
-
 /**
  * Form page styles 
  */
@@ -197,25 +195,25 @@ a, a:visited {
 
 /* Button customization assistance via http://twitterbootstrap3buttons.w3masters.nl/ */
 .btn-custom {
-	background-color: #3C4789;
-	border-color: #3C4789;
+	background-color: #E2F64C;
+	border-color: #E2F64C;
 	color: #fff;
 	margin: 20px 0 20px 0;
-	transition: all 0.2s ease-in-out 0s;
-	-moz-transition: all 0.2s ease-in-out 0s;
-	-webkit-transition: all 0.2s ease-in-out 0s;
-	-o-transition: all 0.2s ease-in-out 0s;
-	-ms-transition: all 0.2s ease-in-out 0s;
+    transition: background-color 0.2s, color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s;
 }
 
 .btn-custom:hover,
 .btn-custom:focus,
 .btn-custom:active,
 .btn-custom.active,
-.unfollow a:hover {
+{
 	background-color: #FFB608;
 	border-color: #FFB608;
-	color: #3C4789;
+	color: #E2F64C;
 }
 
 .btn-custom.disabled:hover,
@@ -230,9 +228,17 @@ fieldset[disabled] .btn-custom:hover,
 fieldset[disabled] .btn-custom:focus,
 fieldset[disabled] .btn-custom:active,
 fieldset[disabled] .btn-custom.active {
-	background-color: #3C4789;
-	border-color: #3C4789;
+	background-color: #E2F64C;
+	border-color: #E2F64C;
 	color: #fff;
+}
+
+#playbtn {
+    padding: 10px 60px;
+    margin: 70px 0 20px 0;
+    color: #333;
+    font-size: 24px;
+    box-shadow: 3px 3px 5px #333;
 }
 
 /**
@@ -240,7 +246,7 @@ fieldset[disabled] .btn-custom.active {
  */
 
  .avatar{
- 	border: 1px solid #3C4789;
+ 	border: 1px solid #E2F64C;
  	margin-top: 15px;
  }
 

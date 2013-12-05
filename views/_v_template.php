@@ -5,8 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Google Web Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+        <!-- Typekit Fonts -->
+        <script type="text/javascript" src="//use.typekit.net/jsa0zoc.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
         <!-- Bootstrap -->
         <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -58,6 +59,9 @@
 
         <!-- Twitter Bootstrap JS stuff -->
         <script src="/js/bootstrap.min.js"></script>
+
+        <!-- Site JS -->
+        <script src="/js/site.js"></script>
 
         <?php if(isset($client_files_body)) echo $client_files_body; ?>
         
