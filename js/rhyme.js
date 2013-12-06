@@ -8,12 +8,15 @@ $(document).ready(function() {
         $.ajax({
             dataType: "json",
             url: '/rhyme/p_rhyme',
-            beforeSubmit: function() {
+            beforeSend: function() {
                 $('#results').html("Fetching a word...");
             },
             success: function(response) { 
                 word = response.word; 
                 rhymes = response.rhymes;
+                // clear the results area
+                $('#results').empty();
+
             }
         }); // end ajax 
 
