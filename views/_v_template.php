@@ -61,8 +61,6 @@
         <script src="/js/bootstrap.min.js"></script>
 
         <!-- Site JS -->
-        <script src="/js/site.js"></script>
-
         <?php if(isset($client_files_body)) echo $client_files_body; ?>
         
     </body>
