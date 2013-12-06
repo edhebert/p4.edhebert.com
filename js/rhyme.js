@@ -9,14 +9,13 @@ $(document).ready(function() {
             dataType: "json",
             url: '/rhyme/p_rhyme',
             beforeSend: function() {
+                // clear the results area
+                $('#results').empty();                
                 $('#results').html("Fetching a word...");
             },
             success: function(response) { 
                 word = response.word; 
                 rhymes = response.rhymes;
-                // clear the results area
-                $('#results').empty();
-
             }
         }); // end ajax 
 
