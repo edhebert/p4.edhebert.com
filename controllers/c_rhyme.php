@@ -8,7 +8,43 @@ class rhyme_controller extends base_controller {
 
     public function index($error = NULL) {
 
-        // include access to the Wordnik API
+        // Setup view
+        $this->template->content = View::instance('v_rhyme_index');
+        $this->template->title   = "Let's Rhyme";
+
+        # // special css and js for the rhyming page
+        $client_files_head = Array(
+            '/css/rhyme.css'
+            );
+
+            $client_files_body = Array(
+                '/js/rhyme.js'
+            );
+
+        # Use load_client_files to generate the links from the above array
+        $this->template->client_files_head = Utils::load_client_files($client_files_head);  
+
+        # Use load_client_files to generate the links from the above array
+            $this->template->client_files_body = Utils::load_client_files($client_files_body);
+
+        # Pass data to the View
+        // $this->template->content->word = $canonical;
+        // $this->template->content->rhymes = $rhymes;
+
+        # pass errors, if any
+        $this->template->content->error = $error;
+
+        # Render the View
+        echo $this->template;
+
+        
+        // print($canonical . '<br><br>');
+        // print_r($rhymes);
+    }    
+
+    public function p_rhyme() {
+
+        // access to the Wordnik API
         require($_SERVER['DOCUMENT_ROOT'] . '/wordnik/Swagger.php');
         $myAPIKey = '1aa94b552058e254ba72b0fb2dc0bba89c925fe4037896b95';
         $client = new APIClient($myAPIKey, 'http://api.wordnik.com/v4');
@@ -41,36 +77,12 @@ class rhyme_controller extends base_controller {
         // insure all words are lowercase
         $rhymes = array_unique(array_map('strtolower', $rhymes));
 
-        // eliminate duplicates, if any
+        // send data back to page
+        $data['word'] = $canonical;
+        $data['rhymes'] = $rhymes;
 
-
-        // Setup view
-        $this->template->content = View::instance('v_rhyme_index');
-        $this->template->title   = "Let's Rhyme";
-
-        # // special css for the rhyming page
-        $client_files_head = Array(
-            '/css/rhyme.css'
-            );
-
-        # Use load_client_files to generate the links from the above array
-        $this->template->client_files_head = Utils::load_client_files($client_files_head);  
-
-        # Pass data to the View
-        $this->template->content->word = $canonical;
-        $this->template->content->rhymes = $rhymes;
-
-        # pass errors, if any
-        $this->template->content->error = $error;
-
-        # Render the View
-        echo $this->template;
-
-        
-        // print($canonical . '<br><br>');
-        // print_r($rhymes);
-    }    
-
+        echo json_encode($data);
+    }
 }
 
 ?>
