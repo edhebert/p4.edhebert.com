@@ -38,6 +38,12 @@ class rhyme_controller extends base_controller {
 
         $rhymes = $result[0]->words;
 
+        // insure all words are lowercase
+        $rhymes = array_unique(array_map('strtolower', $rhymes));
+
+        // eliminate duplicates, if any
+
+
         // Setup view
         $this->template->content = View::instance('v_rhyme_index');
         $this->template->title   = "Let's Rhyme";
