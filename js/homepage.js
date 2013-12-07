@@ -2,18 +2,22 @@ $(document).ready(function() {
     // position welcome message
     $('#herocopy').center();
 
-    // animate  homepage elements (for those with JS)
-    $('h2>span, #playbtn').css('display', 'none');
+    // animate homepage elements (for those with JS)
+    $('#first, #second, #playbtn').css('display', 'none');
+
+    setTimeout(function() {
+        $('#first').fadeIn('slow');
+    }, 500);
 
     // load the "on time" text after a brief delay
     setTimeout(function() {
-        $('h2>span').fadeIn('slow')
-    }, 1500);
+        $('#second').fadeIn('slow')
+    }, 2000);
 
     //fade in the play button
     setTimeout(function() {
         $('#playbtn').fadeIn('slow')
-    }, 2500);
+    }, 3000);
 
     // reposition welcome message on resize
     $(window).resize(function() {
