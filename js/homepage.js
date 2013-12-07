@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#herocopy').center();
 
     // animate homepage elements (for those with JS)
-    $('#first, #second, #playbtn').css('display', 'none');
+    $('#first, #second, #playbtn').css({'display': 'none', 'visibility' : 'visible'});
 
     setTimeout(function() {
         $('#first').fadeIn('slow');
