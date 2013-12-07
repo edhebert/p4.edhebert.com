@@ -21,6 +21,7 @@ $(document).ready(function() {
 
 
         $(document).ajaxComplete(function() {
+            $('#results').empty(); 
             $('#word').text(word);
             console.log(rhymes); // the whole objext
             for (var key in rhymes) {
