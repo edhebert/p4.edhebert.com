@@ -50,6 +50,7 @@ $(document).ready(function() {
                 $('#herocopy').html('<h2 class="bignumber">Go!</h2>');
                 $('#herocopy').center();
 
+                // when countdown has finished, show the game board and begin the game
                 setTimeout(function() {
                     $('#herocopy').hide();
                     $('#gameboard').show();
@@ -58,9 +59,10 @@ $(document).ready(function() {
             }
         };
 
+        // show intro word for 2 seconds and then start countdown
         setTimeout(function() {
             setInterval(updateCountdown, 1000 );
-        }, 2500);
+        }, 2000);
         
 
     });
