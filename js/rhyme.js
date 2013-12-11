@@ -107,7 +107,7 @@ $(document).ready(function() {
             e.preventDefault();
 
             // check the word
-            var checkWord = $("[contenteditable='true']").text();
+            var checkWord = $("[contenteditable='true']").text().toLowerCase();
 
             // if the word is found in the rhymes array
             var arrayIndex = $.inArray(checkWord, rhymeArray);

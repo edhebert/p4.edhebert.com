@@ -53,7 +53,7 @@ class rhyme_controller extends base_controller {
         $wordsApi = new WordsApi($client);
         $wordApi = new WordApi($client);
 
-        // define the minimum number of rhymes a word must have to be accepted
+        // define the minimum number of rhymes a word must have to be accepted for use in the game
         define("NUM_RHYMES", 6);
 
         // loop until we have a word with more than 4 rhymes
