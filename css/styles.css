@@ -1,5 +1,5 @@
 /** 
- * CSCI E-15 Project 2
+ * CSCI E-15 Project 4
  * Ed Hebert ehebert@fas.harvard.edu 
  *
  * Note - Twitter Bootstrap is used on this app, and many of these styles
@@ -235,6 +235,11 @@ fieldset[disabled] .btn-custom.active {
 #playbtn:focus,
 #playbtn:active {
     background-color: #F3FFA4;
+}
+
+#herocopy {
+    width: 100%;
+    text-align: center;
 }
 
 /**

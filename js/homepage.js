@@ -1,3 +1,9 @@
+/**
+ * Ed Hebert
+ * ehebert@fas.harvard.edu
+ * Project 4 - RymrTymr
+ */
+
 $(document).ready(function() {
     // position welcome message
     $('#herocopy').center();

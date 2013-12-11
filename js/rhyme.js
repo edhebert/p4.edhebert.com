@@ -1,18 +1,38 @@
+/**
+ * Ed Hebert
+ * ehebert@fas.harvard.edu
+ * Project 4 - RymrTymr
+ */
+
+
+// the game (used for setInterval)
+var game;
+
+// the global word we need to rhyme
+var word;
+
+// all rhymes for that word
+var rhymeArray;
+
+// global score of the game
+var gameScore;
+
+// whether the game is actively being played
+var playing = false;
+
 $(document).ready(function() {
-    // the game interval
-    var game;
+    //play the game
+    playgame();
 
-    // the global word we need to rhyme
-    var word;
+    // if the play button's clicked, play again!
+    $('#playbtn').click(function(e){
+        e.preventDefault();
+        playgame();
+    });
 
-    // all rhymes for that word
-    var rhymeArray;
+});
 
-    // global score of the game
-    var gameScore;
-
-    // whether the game is actively being played
-    var playing = false;
+function playgame() {
 
     // hide the main copy and gameboard
     $('#herocopy, #gameboard').hide();
@@ -33,7 +53,6 @@ $(document).ready(function() {
             rhymeArray = $.map(rhymes, function(value, index) {
                 return [value];
             });
-// });
         }
     }); // end ajax 
 
@@ -66,8 +85,9 @@ $(document).ready(function() {
                     gameScore = 0;
 
                     // set game clock to 30 sec, show the game board and begin the game
-                    countdown = 30;
+                    countdown = 5;
                     playing = true;
+
                     // make the counter faint overlay on top of screen
                     $('#herocopy').css('opacity', '0.2');
                     $('#score').text(gameScore);
@@ -75,14 +95,15 @@ $(document).ready(function() {
 
                     // position cursor at first editable element
                     $("[contenteditable='true']").focus();
-                 
                 }
                 else {
                     // stop the timer, end the game  
                     clearInterval(game);    
                     playing = false;
-                    $('#herocopy').css('opacity', '0.8');
-                    $('#herocopy').html('<h2 class="bignumber">Game Over</h2>');  
+                    $('#herocopy').css({'opacity': '1.0', 'z-index': 2});
+                    $('#rhymes').css('opacity', '0.2');
+                    $('#herocopy').html('<h2 class="bignumber">Game Over</h2>').append($('#playbtn'));
+                    $('#playbtn').css('visibility', 'visible');  
 
                     // remove contenteditable attribute from all editable tags
                     $('.editable').attr('contenteditable', 'false');       
@@ -93,7 +114,8 @@ $(document).ready(function() {
         // show intro word for 2 seconds and then start game timer
         setTimeout(function() {
             game = setInterval(updateCountdown, 1000);
-        }, 2000);        
+        }, 2000); 
+       
     });
 
 
@@ -138,8 +160,7 @@ $(document).ready(function() {
             $("[contenteditable='true']").focus();
         }
     });
-
-});
+}
 
 
 

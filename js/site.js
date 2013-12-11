@@ -1,3 +1,9 @@
+/**
+ * Ed Hebert
+ * ehebert@fas.harvard.edu
+ * Project 4 - RymrTymr
+ */
+
 // centers elements in the middle of the page
 jQuery.fn.center = function () {
     this.css("position","absolute");
