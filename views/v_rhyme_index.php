@@ -1,14 +1,14 @@
 <div class="centered" id="herocopy">
 </div>
 
-<div id="gameboard">
-    <h2 class="centered" id="word2"></h2>
+<div id="gameboard" class="centered">
+    <h2>Word: <span id="word2"></span><br>Score: <span id="score"></span></h2>
     <div class="row">
-        <div class="col-md-4 col-md-offset-1 centered">
-            <h3>Rhymes</h3>
-        </div>
-        <div class="col-md-4 col-md-offset-2 centered">
-            <h3>Words Used</h3>
+        <div class="col-md-4 col-md-offset-4">
+            <h3>Guesses</h3>
+            <ul id="rhymes">
+                <li class="editable" contenteditable="true"></li>
+            </ul>            
         </div>
     </div>
 </div>

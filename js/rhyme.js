@@ -6,10 +6,10 @@ $(document).ready(function() {
     var word;
 
     // all rhymes for that word
-    var rhymes;
+    var rhymeArray;
 
     // global score of the game
-    var score;
+    var gameScore;
 
     // whether the game is actively being played
     var playing = false;
@@ -29,7 +29,11 @@ $(document).ready(function() {
         },
         success: function(response) { 
             word = response.word; 
-            rhymes = response.rhymes;
+            var rhymes = response.rhymes;
+            rhymeArray = $.map(rhymes, function(value, index) {
+                return [value];
+            });
+// });
         }
     }); // end ajax 
 
@@ -57,20 +61,30 @@ $(document).ready(function() {
                 if (!playing) {
                     //start the game
                     $('#herocopy').html('<h2 class="bignumber">Go!</h2>');
-                    $('#herocopy').center();
 
-                    // when countdown has finished, show the game board and begin the game
-                    countdown = 5;
+                    //init score to zero
+                    gameScore = 0;
+
+                    // set game clock to 30 sec, show the game board and begin the game
+                    countdown = 30;
                     playing = true;
+                    $('#herocopy').css('opacity', '0.3');
+                    $('#score').text(gameScore);
                     $('#gameboard').show();
+
+                    // position cursor at first editable element
+                    $("[contenteditable='true']").focus();
                  
                 }
                 else {
                     // stop the timer, end the game  
                     clearInterval(game);    
                     playing = false;
-                    $('#herocopy').html('<h2 class="bignumber faded">Time\'s Up!</h2>');
-                    $('#herocopy').center();           
+                    $('#herocopy').css('opacity', '0.8');
+                    $('#herocopy').html('<h2 class="bignumber">Game Over</h2>');  
+
+                    // remove contenteditable attribute from all editable tags
+                    $('.editable').attr('contenteditable', 'false');       
                 }
             }
         };
@@ -78,10 +92,54 @@ $(document).ready(function() {
         // show intro word for 2 seconds and then start game timer
         setTimeout(function() {
             game = setInterval(updateCountdown, 1000);
-        }, 2000);
-        
+        }, 2000);        
+    });
+
+
+    // check for keypresses and react accordingly
+    $(document).on("keydown", function(e) {
+        var code = e.keyCode || e.which;
+
+        // if enter or tab pressed, check word
+        if (code == '9' || code == '13') {
+            // prevent default behavior
+            e.preventDefault();
+
+            // check the word
+            var checkWord = $("[contenteditable='true']").text();
+
+            // if the word is found in the rhymes array
+            var arrayIndex = $.inArray(checkWord, rhymeArray);
+            if (arrayIndex != -1)
+            {
+                // item found, remove from array so it cant be used twice
+                rhymeArray.splice(arrayIndex, 1);
+
+                // increment score as necessary
+                gameScore++;
+                $('#score').text(gameScore);
+                // color the text
+                $("[contenteditable='true']").css('color', '#E2F64C');
+            }
+            else {
+                // word not found
+                $("[contenteditable='true']").css('color', '#F44033');
+                console.log('not found!');
+            }
+
+            // remove contenteditable attribute from all editable tags
+            $('.editable').attr('contenteditable', 'false'); 
+
+            // add a new, editable li element
+            $('#rhymes').append('<li class="editable" contenteditable="true"></li>');
+
+            // give it the focus
+            $("[contenteditable='true']").focus();
+        }
     });
 
 });
+
+
 
 
