@@ -1,34 +1,79 @@
 // the global word we need to rhyme
 var word;
+
 // all rhymes for that word
 var rhymes;
 
+// global score of the game
+var score;
+
 $(document).ready(function() {
-    $('#process-btn').click(function() {
-        $.ajax({
-            dataType: "json",
-            url: '/rhyme/p_rhyme',
-            beforeSend: function() {
-                // clear the results area
-                $('#results').empty();                
-                $('#results').html("Fetching a word...");
-            },
-            success: function(response) { 
-                word = response.word; 
-                rhymes = response.rhymes;
-            }
-        }); // end ajax 
+    // hide the main copy and gameboard
+    $('#herocopy, #gameboard').hide();
 
+    $.ajax({
+        dataType: "json",
+        url: '/rhyme/p_rhyme',
+        beforeSend: function() {
+            // clear the results area
+            $('#herocopy').empty();                
+            $('#herocopy').html("Fetching a word...");
+            $('#herocopy').center();
+            $('#herocopy').show();
+        },
+        success: function(response) { 
+            word = response.word; 
+            rhymes = response.rhymes;
+        }
+    }); // end ajax 
 
-        $(document).ajaxComplete(function() {
-            $('#results').empty(); 
-            $('#word').text(word);
-            console.log(rhymes); // the whole objext
-            for (var key in rhymes) {
-                // console.log(rhymes[i]);
-                $('#results').append(rhymes[key] + '<br>');
-                console.log(rhymes[key]);
+    // return array when ajax call is complete
+    $(document).ajaxComplete(function() {
+        $('#results').empty(); 
+        $('#word, #word2').text(word);
+
+        // display the word in the middle of the page
+        $('#herocopy').html('<h2>The word to rhyme is:<br> <span id="word">' + word + '</span></h2>')
+        $('#herocopy').center();
+        $('#herocopy').fadeIn();
+
+        // perform the countdown
+        var countdown = 3;
+        var updateCountdown = function() {
+            if (countdown > 0) {
+                $('#herocopy').html('<h2 class="bignumber">' + countdown + '</h2>');
+                $('#herocopy').center();
+                countdown--;
             }
-        });
-    }); 
+            else
+            {
+                $('#herocopy').html('<h2 class="bignumber">Go!</h2>');
+                $('#herocopy').center();
+
+                setTimeout(function() {
+                    $('#herocopy').hide();
+                    $('#gameboard').show();
+                }, 1500);
+
+            }
+        };
+
+        setTimeout(function() {
+            setInterval(updateCountdown, 1000 );
+        }, 2500);
+        
+
+    });
+
 });
+
+function updateCountdown() {
+    if (countdown > 0) {
+        $('#herocopy').html(countdown);
+        countdown--;
+    }
+    else
+    {
+        $('#herocopy').html('Go!');
+    }
+}

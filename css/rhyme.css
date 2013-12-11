@@ -10,3 +10,15 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
+
+h2 {
+    font-size: 35px;
+}
+
+.bignumber {
+    font-size: 200px;
+}
+
+#word {
+    font-size: 100px;
+}

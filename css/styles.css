@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-#herocopy h2 {
+h2 {
     font-size: 100px;
     text-shadow: 3px 3px 5px #333;
 }
@@ -103,16 +103,6 @@ header h1 a {
     text-indent: -9999px;
     background: transparent url(../img/logo.png) no-repeat center top;
 }
-
-#herocopy {
-    height: 250px;
-}
-
-#herocopy h2 {
-    font-size: 100px;
-    text-shadow: 3px 3px 5px #333;
-}
-
 
 #footer {
     z-index: 1;
