@@ -68,7 +68,8 @@ $(document).ready(function() {
                     // set game clock to 30 sec, show the game board and begin the game
                     countdown = 30;
                     playing = true;
-                    $('#herocopy').css('opacity', '0.3');
+                    // make the counter faint overlay on top of screen
+                    $('#herocopy').css('opacity', '0.2');
                     $('#score').text(gameScore);
                     $('#gameboard').show();
 

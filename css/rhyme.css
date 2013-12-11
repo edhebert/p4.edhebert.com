@@ -26,6 +26,11 @@ li {
     font-size: 24px;
 }
 
+/* hide the gameboard at the beginning of game */
+#gameboard {
+    display: none;
+}
+
 .bignumber {
     font-size: 200px;
     margin: 0;
@@ -72,4 +77,30 @@ li {
 [contenteditable="true"]:focus {
     border:none;
     outline:none;
+}
+
+/* Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media (max-width : 767px) {
+    .bignumber {
+        font-size: 100px;
+    }
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media (min-width : 768px) 
+and (max-width : 1024px) {
+    .bignumber {
+        font-size: 150px;
+    }
+}
+
+
+/* Large screens ----------- */
+@media (min-width : 1824px) {
+    .bignumber {
+        font-size: 240px;
+    }
 }
