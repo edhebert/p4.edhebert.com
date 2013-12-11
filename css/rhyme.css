@@ -22,3 +22,7 @@ h2 {
 #word {
     font-size: 100px;
 }
+
+.faded {
+    opacity: 0.3;
+}

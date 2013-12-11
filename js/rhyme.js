@@ -1,16 +1,19 @@
-// the global word we need to rhyme
-var word;
-
-// all rhymes for that word
-var rhymes;
-
-// global score of the game
-var score;
-
-// whether the game is actively being played
-var playing = false;
-
 $(document).ready(function() {
+    // the game interval
+    var game;
+
+    // the global word we need to rhyme
+    var word;
+
+    // all rhymes for that word
+    var rhymes;
+
+    // global score of the game
+    var score;
+
+    // whether the game is actively being played
+    var playing = false;
+
     // hide the main copy and gameboard
     $('#herocopy, #gameboard').hide();
 
@@ -64,15 +67,17 @@ $(document).ready(function() {
                 }
                 else {
                     // stop the timer, end the game  
-                    clearInterval();    
-                    $('#herocopy').html('<h2 class="bignumber">Time\'s Up!</h2>').center();           
+                    clearInterval(game);    
+                    playing = false;
+                    $('#herocopy').html('<h2 class="bignumber faded">Time\'s Up!</h2>');
+                    $('#herocopy').center();           
                 }
             }
         };
 
         // show intro word for 2 seconds and then start game timer
         setTimeout(function() {
-            setInterval(updateCountdown, 1000);
+            game = setInterval(updateCountdown, 1000);
         }, 2000);
         
     });
