@@ -34,6 +34,9 @@ $(document).ready(function() {
 // if the play button's clicked, play again!
 $('#playbtn').click(function(e){
     e.preventDefault();
+    // reset game variables
+    resetGame();
+    //play the game
     playgame();
 });
 
@@ -127,6 +130,15 @@ function playgame() {
             game = setInterval(updateCountdown, 1000);
         }, 2000);        
     });
+}
+
+/* reset all game variables */
+
+function resetGame() {
+    clearInterval(game);
+    countdown = 0;
+    gameScore = 0;
+    playing = false;
 }
 
 /* performs all the looping / timing for the game */
