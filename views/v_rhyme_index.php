@@ -1,4 +1,4 @@
-<div class="centered" id="herocopy">
+<div id="herocopy">
 </div>
 <div id="gameboard" class="centered">
     <h2>Word: <span id="word2"></span><br>Score: <span id="score"></span></h2>
