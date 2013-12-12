@@ -69,7 +69,6 @@ $(document).on("keydown", function(e) {
         else {
             // word not found
             $("[contenteditable='true']").css('color', '#F44033');
-            console.log('not found!');
         }
 
         // remove contenteditable attribute from all editable tags
@@ -144,22 +143,22 @@ function resetGame() {
 /* performs all the looping / timing for the game */
 
 function updateCountdown() {
+    console.log(countdown);
     // display numbers until it hits zero 
     if (countdown >= 0) {
         if (countdown == 0)
         {
             //show appropriate message
             if (!playing)
-                $('#herocopy').html('<h2 class="bignumber">Go!</h2>');
+                $('#herocopy').html('<h2 class="bignumber">Go!</h2>').css('opacity', '1.0');
             else
-                $('#herocopy').html('<h2 class="bignumber">Game Over</h2>');
+                $('#herocopy').html('<h2 class="bignumber">Game Over</h2>').css({'opacity': '1.0', 'z-index':'2'});
         }
         else {
             $('#herocopy').html('<h2 class="bignumber">' + countdown + '</h2>');
             $('#herocopy').center();
         }
         countdown--;
-        console.log(playing);
     }
     else
     {
@@ -194,7 +193,7 @@ function updateCountdown() {
             $('#herocopy').css({'opacity': '1.0', 'z-index': 2});
             $('#rhymes').css('opacity', '0.2');
             $('#herocopy').append($('#playbtn'));
-            $('#playbtn').css('visibility', 'visible');  
+            $('#playbtn').css({'display': 'none', 'visibility' : 'visible'}).fadeIn('slow');  
 
             // remove contenteditable attribute from all editable tags
             $('.editable').attr('contenteditable', 'false');       
