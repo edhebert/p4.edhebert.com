@@ -38,9 +38,7 @@ $(document).ready(function() {
             $('#myModal').modal();
         }
         setCookie("anonymous",true,1);
-    })
-
-
+    });
 });
 
 

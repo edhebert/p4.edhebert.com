@@ -210,7 +210,9 @@ function updateCountdown() {
         else {
             // stop the timer, end the game  
             clearInterval(game);  
-            playing = false;    
+            playing = false;   
+            // remove contenteditable attribute from all editable tags
+            $('.editable').attr('contenteditable', 'false');   
         }
     }
 };

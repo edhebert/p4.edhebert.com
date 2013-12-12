@@ -51,8 +51,8 @@
             <div class="container">
                 <div class="row">
                     <div class="pull-right md-col-12">
-                        <a class="btn btn-custom" href="#"><i class="fa fa-lock"></i> Login</a>
-                        <a class="btn btn-custom" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
+                        <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> Log In</a>
+                        <a class="btn btn-custom" id="signup-btn" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -67,6 +67,81 @@
         <!-- Site JS -->
         <script src="/js/site.js"></script>
         <?php if(isset($client_files_body)) echo $client_files_body; ?>
+ 
                       
+        <!-- login modal-->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+                    </div>
+                    <div class="modal-body centered">
+                        <form role="form" method="POST" action="/users/login">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div> 
+                            <!-- warn on login errors -->
+                            <?php if(isset($error)): ?>
+                                <div class="callout-error">
+                                    <h4>Login failed.</h4> 
+                                    <?php echo $error; ?>
+                                </div>
+                            <?php endif; ?> 
+                            <button type="submit" class="btn btn-custom"><i class="fa fa-lock"></i> Login</button>   
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal --> 
+
+        <!-- signup modal-->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog signup-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+                    </div>
+                    <div class="modal-body centered">
+                        <form role="form" method="POST" action="/users/signup">
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter first name" <?php if(isset($_POST['first_name'])) echo "value = '". $_POST['first_name'] ."'"?>>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter last name" <?php if(isset($_POST['last_name'])) echo "value = '". $_POST['last_name'] ."'"?>>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                            </div>
+                            <div class="form-group">
+                                <label for="first_name">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div>  
+                            <div class="form-group">
+                                <label for="first_name">Retype Password</label>
+                                <input type="password" class="form-control" id="retype" name="retype" placeholder="Retype password">
+                            </div>         
+                            <!-- warn on signup errors -->
+                            <?php if(isset($error)): ?>
+                                <div class="callout-error">
+                                    <h4>Signup failed.</h4> 
+                                    <?php echo $error; ?>
+                                </div>
+                            <?php endif; ?> 
+                            <button type="submit" class="btn btn-custom"><i class="fa fa-pencil-square-o"></i> Sign Up</button>   
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->         
+                                                                                                                                      
     </body>
 </html>

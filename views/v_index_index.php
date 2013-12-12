@@ -3,7 +3,7 @@
     <a href="/rhyme" class="btn btn-custom" id="playbtn"><i class="fa fa-play-circle-o"></i> Play</a>
 </div>
 
-<!-- Sign Up Modal -->
+<!-- Nag Modal, displays once a day asking people to sign up-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

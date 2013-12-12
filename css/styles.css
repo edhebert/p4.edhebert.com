@@ -152,6 +152,9 @@ a, a:visited {
  		resize: none;
  }
 
+.form-control {
+    font-size: 20px;
+}
 .callout-error {
 	padding: 20px;
 	border-left: 5px;
@@ -160,9 +163,6 @@ a, a:visited {
 	margin-bottom: 20px;
 }
 
-.form-control {
-	border: 1px solid #B7B4C5;
-}
 
 .form-control:focus {
 	border-color: #FFB608;
@@ -210,6 +210,11 @@ a, a:visited {
 #herocopy {
     width: 100%;
     text-align: center;
+    transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;    
 }
 
 #myModalLabel {
@@ -224,6 +229,10 @@ a, a:visited {
 
 .modal-dialog {
   padding-top: 15%;
+}
+
+.signup-dialog {
+  padding-top: 10%;
 }
 
 .modal {

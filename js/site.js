@@ -11,3 +11,13 @@ jQuery.fn.center = function () {
     this.css("left", Math.max(0, (($(window).width() - $(this).width()) / 2)));
     return this;
 }
+
+$('#login-btn').click(function(e) {
+    e.preventDefault();
+    $('#loginModal').modal();
+});
+
+$('#signup-btn').click(function(e) {
+    e.preventDefault();
+    $('#signupModal').modal();
+});

@@ -49,7 +49,7 @@ li {
 
 /* set the display of editable regions of page */
 [contenteditable="true"] {  
-    background-color: #E2F64C;
+    background-color: #F3FFA4;
     color: #333;
     padding: 10px 30px;
     -webkit-border-radius: 10px;
