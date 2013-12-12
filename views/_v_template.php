@@ -9,8 +9,9 @@
         <script type="text/javascript" src="//use.typekit.net/jsa0zoc.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-        <!-- Bootstrap -->
+        <!-- Bootstrap & Font Awesome-->
         <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <!-- custom styles -->
         <link href="/css/styles.css" rel="stylesheet" media="screen">
@@ -49,7 +50,10 @@
         <div id="footer">
             <div class="container">
                 <div class="row">
-
+                    <div class="pull-right md-col-12">
+                        <a class="btn btn-custom" href="#"><i class="fa fa-lock"></i> Login</a>
+                        <a class="btn btn-custom" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
+                    </div>
                 </div>
             </div>
         </div> <!-- footer -->

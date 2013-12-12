@@ -22,13 +22,13 @@ body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by its height */
-    margin: 0 auto -30px;
+    margin: 0 auto -100px;
 }
 
 /* Set the fixed height of the footer here */
 #push,
 #footer {
-    height: 30px;
+    height: 100px;
 }
 
 
@@ -135,14 +135,6 @@ a, a:visited {
 	-ms-transition: all 0.2s ease-in-out 0s;
 }
 
-#footer a, #footer a:visited, .unfollow a, .unfollow a:visited {
-	color: #FFB608;
-}
-
-#footer a:hover {
-	color: #FFFBEC;
-}
-
 .page-header {
 	border-bottom: 1px solid #B7B4C5;
 }
@@ -184,8 +176,8 @@ a, a:visited {
 /* Button customization assistance via http://twitterbootstrap3buttons.w3masters.nl/ */
 .btn-custom {
 	background-color: #E2F64C;
-	color: #fff;
-	margin: 20px 0 20px 0;
+	color: #333;
+	margin: 20px 5px 20px 5px;
     transition: background-color 0.2s, color 0.2s;
     -moz-transition: background-color 0.2s, color 0.2s;
     -webkit-transition: background-color 0.2s, color 0.2s;
@@ -198,8 +190,8 @@ a, a:visited {
 .btn-custom:active,
 .btn-custom.active,
 {
-	background-color: #FFB608;
-	color: #E2F64C;
+	background-color: #F3FFA4;
+	color: #333;
 }
 
 .btn-custom.disabled:hover,
@@ -240,34 +232,4 @@ fieldset[disabled] .btn-custom.active {
 #herocopy {
     width: 100%;
     text-align: center;
-}
-
-/**
- * Posts
- */
-
- .avatar{
- 	border: 1px solid #E2F64C;
- 	margin-top: 15px;
- }
-
- .post {
- 	background-color: #FFF3CA;
- }
-
- .postform {
- 	margin: 0 25px;
- }
-
- /**
-  * Posts / Users
-  */
-
-.caption {
-    text-align: center;
-}
-
-.thumbnail {
-    background-color: #FFF3CA;
-    margin-bottom: 20px;
 }

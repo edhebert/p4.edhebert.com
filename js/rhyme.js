@@ -10,6 +10,9 @@
 // the game (used for setInterval)
 var game;
 
+// SetTimeout var for showing word
+var showWord;
+
 // the global word we need to rhyme
 var word;
 
@@ -33,11 +36,12 @@ $(document).ready(function() {
 
 // if the play button's clicked, play again!
 $('#playbtn').click(function(e){
-    e.preventDefault();
+    // just reload the page (for now!)
+    // e.preventDefault();
     // reset game variables
-    resetGame();
+    // resetGame();
     //play the game
-    playgame();
+   //  playgame();
 });
 
 // check for keypresses and react accordingly
@@ -99,12 +103,12 @@ function playgame() {
         beforeSend: function() {
             // clear the results area
             $('#herocopy').empty();                
-            $('#herocopy').html("Fetching a word...");
+            $('#herocopy').html('<i class="fa fa-spinner fa-spin"></i> Fetching a word...');
             $('#herocopy').center();
             $('#herocopy').show();
         },
         success: function(response) { 
-            word = response.word; 
+            word = response.word.toLowerCase();
             var rhymes = response.rhymes;
             rhymeArray = $.map(rhymes, function(value, index) {
                 return [value];
@@ -125,9 +129,9 @@ function playgame() {
         countdown = 3;
 
         // show intro word for 2 seconds and then start game timer
-       setTimeout(function() {
+        showWord = setTimeout(function() {
             game = setInterval(updateCountdown, 1000);
-        }, 2000);        
+        }, 2000);    
     });
 }
 
@@ -135,6 +139,9 @@ function playgame() {
 
 function resetGame() {
     clearInterval(game);
+    clearTimeout(showWord);
+    game = "";
+    showWord = "";
     countdown = 0;
     gameScore = 0;
     playing = false;
@@ -152,7 +159,16 @@ function updateCountdown() {
             if (!playing)
                 $('#herocopy').html('<h2 class="bignumber">Go!</h2>').css('opacity', '1.0');
             else
+            {
                 $('#herocopy').html('<h2 class="bignumber">Game Over</h2>').css({'opacity': '1.0', 'z-index':'2'});
+                $('#rhymes').css('opacity', '0.2');
+                $('#herocopy').css({'opacity': '1.0', 'z-index': 2});
+                $('#herocopy').append($('#playbtn'));
+                $('#playbtn').css({'display': 'none', 'visibility' : 'visible'}).fadeIn('slow');  
+
+                // remove contenteditable attribute from all editable tags
+                $('.editable').attr('contenteditable', 'false');   
+            }
         }
         else {
             $('#herocopy').html('<h2 class="bignumber">' + countdown + '</h2>');
@@ -176,7 +192,7 @@ function updateCountdown() {
             $('#score').text(gameScore);
 
             // set up gameboard
-                        $('#rhymes').css('opacity', '0.8');
+            $('#rhymes').css('opacity', '0.8');
             $('#rhymes').html('<li class="editable" contenteditable="true"></li>');
             $('#gameboard').show();
 
@@ -189,14 +205,7 @@ function updateCountdown() {
         else {
             // stop the timer, end the game  
             clearInterval(game);  
-            playing = false;
-            $('#herocopy').css({'opacity': '1.0', 'z-index': 2});
-            $('#rhymes').css('opacity', '0.2');
-            $('#herocopy').append($('#playbtn'));
-            $('#playbtn').css({'display': 'none', 'visibility' : 'visible'}).fadeIn('slow');  
-
-            // remove contenteditable attribute from all editable tags
-            $('.editable').attr('contenteditable', 'false');       
+            playing = false;    
         }
     }
 };

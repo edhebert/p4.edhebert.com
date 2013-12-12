@@ -10,5 +10,5 @@
         </div>
     </div>
 </div>
-<a href="#" class="btn btn-custom" id="playbtn">Play Again?</a>
+<a href="/rhyme" class="btn btn-custom" id="playbtn">Play Again?</a>
 
