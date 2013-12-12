@@ -175,9 +175,10 @@ a, a:visited {
 
 /* Button customization assistance via http://twitterbootstrap3buttons.w3masters.nl/ */
 .btn-custom {
+    font-size: 18px;
 	background-color: #E2F64C;
 	color: #333;
-	margin: 20px 5px 20px 5px;
+	margin: 20px 5px 0 5px;
     transition: background-color 0.2s, color 0.2s;
     -moz-transition: background-color 0.2s, color 0.2s;
     -webkit-transition: background-color 0.2s, color 0.2s;
@@ -187,28 +188,10 @@ a, a:visited {
 
 .btn-custom:hover,
 .btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active,
-{
+.btn-custom:active {
 	background-color: #F3FFA4;
-	color: #333;
 }
 
-.btn-custom.disabled:hover,
-.btn-custom.disabled:focus,
-.btn-custom.disabled:active,
-.btn-custom.disabled.active,
-.btn-custom[disabled]:hover,
-.btn-custom[disabled]:focus,
-.btn-custom[disabled]:active,
-.btn-custom[disabled].active,
-fieldset[disabled] .btn-custom:hover,
-fieldset[disabled] .btn-custom:focus,
-fieldset[disabled] .btn-custom:active,
-fieldset[disabled] .btn-custom.active {
-	background-color: #E2F64C;
-	color: #fff;
-}
 
 #playbtn {
     padding: 10px 60px;
@@ -216,11 +199,6 @@ fieldset[disabled] .btn-custom.active {
     color: #333;
     font-size: 24px;
     box-shadow: 3px 3px 5px #333;
-    transition: background-color 0.2s, color 0.2s;
-    -moz-transition: background-color 0.2s, color 0.2s;
-    -webkit-transition: background-color 0.2s, color 0.2s;
-    -o-transition: background-color 0.2s, color 0.2s;
-    -ms-transition: background-color 0.2s, color 0.2s;    
 }
 
 #playbtn:hover,
@@ -232,4 +210,22 @@ fieldset[disabled] .btn-custom.active {
 #herocopy {
     width: 100%;
     text-align: center;
+}
+
+#myModalLabel {
+    color : #f44033;
+    font-size: 28px;
+    text-align: center;
+}
+
+.modal-body {
+    color : #333;
+}
+
+.modal-dialog {
+  padding-top: 15%;
+}
+
+.modal {
+    overflow : hidden;
 }

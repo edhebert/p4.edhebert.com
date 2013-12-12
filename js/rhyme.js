@@ -44,6 +44,11 @@ $('#playbtn').click(function(e){
    //  playgame();
 });
 
+// reposition welcome message on resize
+$(window).resize(function() {
+    $('#herocopy').center();
+});
+
 // check for keypresses and react accordingly
 $(document).on("keydown", function(e) {
     var code = e.keyCode || e.which;
