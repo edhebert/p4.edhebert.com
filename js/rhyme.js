@@ -163,7 +163,14 @@ function updateCountdown() {
             // make the counter faint overlay on top of screen
             $('#herocopy').css('opacity', '0.2');
             $('#score').text(gameScore);
+
+            // set up gameboard
+                        $('#rhymes').css('opacity', '0.8');
+            $('#rhymes').html('<li class="editable" contenteditable="true"></li>');
             $('#gameboard').show();
+
+            // remove contenteditable attribute from all editable tags
+            $('.editable').attr('contenteditable', 'true');  
 
             // position cursor at first editable element
             $("[contenteditable='true']").focus();

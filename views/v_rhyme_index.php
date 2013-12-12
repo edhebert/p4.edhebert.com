@@ -6,7 +6,6 @@
         <div class="col-md-4 col-md-offset-4">
             <h3>Guesses</h3>
             <ul id="rhymes">
-                <li class="editable" contenteditable="true"></li>
             </ul>            
         </div>
     </div>
