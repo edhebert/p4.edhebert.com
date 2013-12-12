@@ -85,7 +85,7 @@ function playgame() {
                     gameScore = 0;
 
                     // set game clock to 30 sec, show the game board and begin the game
-                    countdown = 5;
+                    countdown = 30;
                     playing = true;
 
                     // make the counter faint overlay on top of screen
