@@ -91,12 +91,10 @@
                                 <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Enter password">
                             </div> 
                             <!-- warn on login errors -->
-                            <?php if(isset($error)): ?>
                                 <div class="callout-error">
                                     <h4>Login failed.</h4> 
                                     <div class="display-error"></div>
                                 </div>
-                            <?php endif; ?> 
                             <button type="submit" class="btn btn-custom" id="p_login"><i class="fa fa-lock"></i> Log In</button>   
                         </form>
                     </div>

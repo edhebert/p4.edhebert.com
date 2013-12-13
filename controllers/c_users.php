@@ -21,14 +21,11 @@ class users_controller extends base_controller {
             $_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
             // Escape HTML chars (XSS attacks)
-            $_POST['email'] = stripslashes(htmlspecialchars($_POST['login_email']));
+            $_POST['email'] = stripslashes(htmlspecialchars($_POST['email']));
 
             // Hash submitted password so we can compare it against one in the db
-            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['login_password']);
+            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
 
-            // unset the input fields
-            unset($_POST['login_email']);
-            unset($_POST['login_password']);
 
             // check POST data for valid input
             foreach($_POST as $field_name => $value) { 
