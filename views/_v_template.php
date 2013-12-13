@@ -85,7 +85,7 @@
                     <div class="modal-body centered">
                         <form role="form" method="POST" id="login-form" action="/users/login">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="login_email" name="login_email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                                <input type="email" class="form-control" id="login_email" name="login_email" placeholder="Enter email" <?php if(isset($_POST['login_email'])) echo "value = '". $_POST['login_email'] ."'"?>>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Enter password">
@@ -113,32 +113,25 @@
                     <div class="modal-body centered">
                         <form role="form" method="POST" action="/users/signup">
                             <div class="form-group">
-                                <label for="first_name">First Name</label>
                                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter first name" <?php if(isset($_POST['first_name'])) echo "value = '". $_POST['first_name'] ."'"?>>
                             </div>
                             <div class="form-group">
-                                <label for="last_name">Last Name</label>
                                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter last name" <?php if(isset($_POST['last_name'])) echo "value = '". $_POST['last_name'] ."'"?>>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="signup_email" name="signup_email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                                <input type="email" class="form-control" id="signup_email" name="signup_email" placeholder="Enter email" <?php if(isset($_POST['signup_email'])) echo "value = '". $_POST['signup_email'] ."'"?>>
                             </div>
                             <div class="form-group">
-                                <label for="first_name">Password</label>
                                 <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Enter password">
                             </div>  
                             <div class="form-group">
-                                <label for="first_name">Retype Password</label>
                                 <input type="password" class="form-control" id="retype" name="retype" placeholder="Retype password">
                             </div>         
                             <!-- warn on signup errors -->
-                            <?php if(isset($error)): ?>
                                 <div class="callout-error">
                                     <h4>Signup failed.</h4> 
                                     <div class="display-error"></div>
                                 </div>
-                            <?php endif; ?> 
                             <button type="submit" class="btn btn-custom" id="p_signup"><i class="fa fa-pencil-square-o"></i> Sign Up</button>   
                         </form>
                     </div>

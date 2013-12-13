@@ -28,7 +28,12 @@ $(document).ready(function() {
 
     $('#signup-btn').click(function(e) {
         e.preventDefault();
+
         $('#signupModal').modal();
+
+        setTimeout(function(){
+            $('#first_name').focus();
+        }, 500);              
     });
 
     // $('#p_signup').click(function(e) {
