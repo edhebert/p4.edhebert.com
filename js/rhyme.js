@@ -115,6 +115,7 @@ function playgame() {
         success: function(response) { 
             word = response.word.toLowerCase();
             var rhymes = response.rhymes;
+            // make an array out of the rhymes object
             rhymeArray = $.map(rhymes, function(value, index) {
                 return [value];
             });

@@ -51,8 +51,13 @@
             <div class="container">
                 <div class="row">
                     <div class="pull-right md-col-12">
+                    <?php if ($user) : ?>
+                        <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> View your stats</a>
+                    <?php else: ?>
                         <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> Log In</a>
                         <a class="btn btn-custom" id="signup-btn" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
+                    <?php endif; ?>
+                            
                     </div>
                 </div>
             </div>
@@ -75,24 +80,24 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+                        <h4 class="modal-title">Log In</h4>
                     </div>
                     <div class="modal-body centered">
-                        <form role="form" method="POST" action="/users/login">
+                        <form role="form" method="POST" id="login-form" action="/users/login">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                                <input type="email" class="form-control" id="login_email" name="login_email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                                <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Enter password">
                             </div> 
                             <!-- warn on login errors -->
                             <?php if(isset($error)): ?>
                                 <div class="callout-error">
                                     <h4>Login failed.</h4> 
-                                    <?php echo $error; ?>
+                                    <div class="display-error"></div>
                                 </div>
                             <?php endif; ?> 
-                            <button type="submit" class="btn btn-custom"><i class="fa fa-lock"></i> Login</button>   
+                            <button type="submit" class="btn btn-custom" id="p_login"><i class="fa fa-lock"></i> Log In</button>   
                         </form>
                     </div>
                 </div><!-- /.modal-content -->
@@ -105,7 +110,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+                        <h4 class="modal-title">Sign Up</h4>
                     </div>
                     <div class="modal-body centered">
                         <form role="form" method="POST" action="/users/signup">
@@ -119,11 +124,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
+                                <input type="email" class="form-control" id="signup_email" name="signup_email" placeholder="Enter email" <?php if(isset($_POST['email'])) echo "value = '". $_POST['email'] ."'"?>>
                             </div>
                             <div class="form-group">
                                 <label for="first_name">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                                <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Enter password">
                             </div>  
                             <div class="form-group">
                                 <label for="first_name">Retype Password</label>
@@ -133,10 +138,10 @@
                             <?php if(isset($error)): ?>
                                 <div class="callout-error">
                                     <h4>Signup failed.</h4> 
-                                    <?php echo $error; ?>
+                                    <div class="display-error"></div>
                                 </div>
                             <?php endif; ?> 
-                            <button type="submit" class="btn btn-custom"><i class="fa fa-pencil-square-o"></i> Sign Up</button>   
+                            <button type="submit" class="btn btn-custom" id="p_signup"><i class="fa fa-pencil-square-o"></i> Sign Up</button>   
                         </form>
                     </div>
                 </div><!-- /.modal-content -->
