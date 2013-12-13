@@ -36,30 +36,36 @@ $(document).ready(function() {
         }, 500);              
     });
 
-    // $('#p_signup').click(function(e) {
-    //     $.ajax({
-    //         type: 'POST',
-    //         dataType: "json",
-    //         url: '/users/signup/',
-    //         data: {
-    //             email: $('#signup_email').val(),
-    //             password: $('#signup_password').val(),
-    //         },        
-    //         beforeSend: function() {
-    //             // do the before send stuff
+    $('#p_signup').click(function(e) {
+        e.preventDefault();
 
-    //         },
-    //         success: function(response) { 
-    //             // process the response end
-    //             // if there was an error
-    //             if (typeof response.error != undefined)
-    //             {
-    //                 $('.display-error').html(response.error);
-    //             }
-    //         }
-    //     }); //  ajax     
-    //     return false;
-    // });
+        console.log('click!');
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            url: '/users/signup',
+            data: {
+                first_name: $('#first_name').val(),
+                last_name: $('#last_name').val(),
+                email: $('#signup_email').val(),
+                password: $('#signup_password').val(),
+                retype: $('#retype').val(),
+            },        
+            beforeSend: function() {
+                // do the before send stuff
+
+            },
+            success: function(response) { 
+                // process the response end
+                // if there was an error
+                if (typeof response.error != undefined)
+                {
+                    $('.display-error').html(response.error);
+                    $('.callout-error').fadeIn('slow');
+                }
+            }
+        }); //  ajax     
+    });
 
     $('#p_login').click(function(e) {
 

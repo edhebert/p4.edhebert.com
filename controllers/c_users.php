@@ -126,6 +126,12 @@ class users_controller extends base_controller {
             $data['error'] = '<p>Password fields don&apos;t match.</p>';        
         }
 
+        // if we got an error, return it
+        if(isset($data['error'])) {
+            // return error data to AJAX request
+            echo json_encode($data);
+        }
+
         // if no previous errors, add user to the database!
         else if (!$error){              
             // unset the 'retype' field (not needed in db)
@@ -167,8 +173,7 @@ class users_controller extends base_controller {
             // log user in using the token we generated
             setcookie("token", $_POST['token'], strtotime('+1 year'), '/');
 
-            // Redirect new user to the posts page
-            Router::redirect("/posts/");
+
         }
     } 
 
