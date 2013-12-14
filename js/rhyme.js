@@ -147,7 +147,6 @@ function resetGame() {
 /* performs all the looping / timing for the game */
 
 function updateCountdown() {
-    console.log(countdown);
     // display numbers until it hits zero 
     if (countdown >= 0) {
         if (countdown == 0)
@@ -164,7 +163,7 @@ function updateCountdown() {
                 $('#playbtn').css({'display': 'none', 'visibility' : 'visible'}).fadeIn('slow');  
 
                 // remove contenteditable attribute from all editable tags
-                $('.editable').attr('contenteditable', 'false');   
+                $('.editable').attr('contenteditable', 'false');  
             }
         }
         else {
@@ -204,7 +203,28 @@ function updateCountdown() {
             clearInterval(game);  
             playing = false;   
             // remove contenteditable attribute from all editable tags
-            $('.editable').attr('contenteditable', 'false');   
+            $('.editable').attr('contenteditable', 'false');     
+
+            // if user's logged in send score to database
+            if(typeof firstName != 'undefined') 
+            {
+                    $.ajax({
+                        async: false,
+                        type: 'POST',
+                        dataType: "json",
+                        url: '/users/update',
+                        data: {
+                            score: gameScore,
+                        },        
+                        beforeSend: function() {
+                            // do the before send stuff
+                        },
+                        success: function(response) { 
+                            console.log(response);
+                            clearInterval(game);
+                        }
+                    }); //  ajax   
+            }            
         }
     }
 };

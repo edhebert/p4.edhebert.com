@@ -162,4 +162,24 @@ class users_controller extends base_controller {
 
     } 
 
+    public function update() {
+        if (!$_POST) 
+        {
+            // Send them back to the home page.
+            Router::redirect("/");
+        } 
+        else 
+        {   
+            // get the player's score
+            $score = $_POST['score'];
+
+            // run update query:  increment games, add score, update high score if new one beats it  
+            $q =    "UPDATE users SET games=games+1, points=points+" . $score . ", high_score = CASE WHEN " . $score . " > high_score THEN " . $score . " ELSE high_score END WHERE user_id = " . $this->user->user_id;
+
+            # Run the command
+            $data = DB::instance(DB_NAME)->query($q);
+            
+            echo json_encode($score);
+        }
+    }
 } // eoc
