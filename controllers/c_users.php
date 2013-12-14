@@ -10,11 +10,9 @@ class users_controller extends base_controller {
     }
 
     public function login() {
-
-        // Render template
         if (!$_POST) {
-            return; 
-        
+            // Send them back to the home page.
+            Router::redirect("/");
         } else {
 
             // Sanitize the user entered data to prevent SQL Injection Attacks
@@ -103,7 +101,8 @@ class users_controller extends base_controller {
 
         // If no POST data was yet submitted, just render the view
         if(!$_POST) {
-            return;
+            // Send them back to the home page.
+            Router::redirect("/");
         }
 
         // check POST data for valid input
@@ -153,21 +152,14 @@ class users_controller extends base_controller {
             // Insert this user into the database
             $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
-            // all users follow their own posts by default
-            $data = Array(
-                "created" => Time::now(),
-                "user_id" => $user_id,
-                "user_id_followed" => $user_id
-                );
-
-            # Do the insert
-            DB::instance(DB_NAME)->insert('users_users', $data);
-
-            // log user in using the token we generated
+            // log user in using the token we just generated
             setcookie("token", $_POST['token'], strtotime('+1 year'), '/');
-        }
-            // Send success back to AJAX.
-            echo json_encode($data);        
+
+            // send data back to AJAX
+            $data['success'] = true;
+            echo json_encode($data);
+        }   
+
     } 
 
 } // eoc
