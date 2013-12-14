@@ -20,13 +20,6 @@ class users_controller extends base_controller {
             // Sanitize the user entered data to prevent SQL Injection Attacks
             $_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
-            // Escape HTML chars (XSS attacks)
-            $_POST['email'] = stripslashes(htmlspecialchars($_POST['email']));
-
-            // Hash submitted password so we can compare it against one in the db
-            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
-
-
             // check POST data for valid input
             foreach($_POST as $field_name => $value) { 
                 // If any field was blank, add a message to the error View variable
@@ -37,6 +30,12 @@ class users_controller extends base_controller {
                     return;                 
                 }
             }
+
+            // Escape HTML chars (XSS attacks)
+            $_POST['email'] = stripslashes(htmlspecialchars($_POST['email']));
+
+            // Hash submitted password so we can compare it against one in the db
+            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
 
             // Search the db for this email and password
             // Retrieve the token if it's available
@@ -66,13 +65,17 @@ class users_controller extends base_controller {
                 */
                 setcookie("token", $token, strtotime('+1 year'), '/');
 
-                # Send them to the posts page
-                Router::redirect("/posts/");
+                // Send success back to AJAX.
+                $data['success'] = true;
             }
 
             // return data to AJAX request
             echo json_encode($data);
         }
+    }
+
+    public function getuser() {
+        echo json_encode($this->user);
     }
 
     public function logout() {
@@ -133,7 +136,7 @@ class users_controller extends base_controller {
         }
 
         // if no previous errors, add user to the database!
-        else if (!$error){              
+        else {              
             // unset the 'retype' field (not needed in db)
             unset($_POST['retype']);
 
@@ -160,21 +163,11 @@ class users_controller extends base_controller {
             # Do the insert
             DB::instance(DB_NAME)->insert('users_users', $data);
 
-            // Email a welcome message to the new user
-            $to[]    = Array("name" => $_POST['first_name'], "email" => $_POST['email']);
-            $from    = Array("name" => APP_NAME, "email" => APP_EMAIL);
-            $subject = "Welcome to Blabbr!";              
-                
-            $body = View::instance('v_email_welcome');
-                
-            // Send email
-            Email::send($to, $from, $subject, $body, true, '');
-
             // log user in using the token we generated
             setcookie("token", $_POST['token'], strtotime('+1 year'), '/');
-
-
         }
+            // Send success back to AJAX.
+            echo json_encode($data);        
     } 
 
 } // eoc

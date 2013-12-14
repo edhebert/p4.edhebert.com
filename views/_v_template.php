@@ -52,7 +52,8 @@
                 <div class="row">
                     <div class="pull-right md-col-12">
                     <?php if ($user) : ?>
-                        <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> View your stats</a>
+                        <a class="btn btn-custom" id="stats-btn" href="#"><i class="fa fa-bar-chart-o"></i> Check your stats, <?= $user->first_name ?>!</a>
+                        <a class="btn btn-custom" id="logout-btn" href="/users/logout"><i class="fa fa-coffee"></i> Log Out</a>                        
                     <?php else: ?>
                         <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> Log In</a>
                         <a class="btn btn-custom" id="signup-btn" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
@@ -129,7 +130,7 @@
                             </div>         
                             <!-- warn on signup errors -->
                                 <div class="callout-error">
-                                    <h4>Signup failed.</h4> 
+                                    <h4>Sign Up failed.</h4> 
                                     <div class="display-error"></div>
                                 </div>
                             <button type="submit" class="btn btn-custom" id="p_signup"><i class="fa fa-pencil-square-o"></i> Sign Up</button>   

@@ -12,16 +12,39 @@ jQuery.fn.center = function () {
     return this;
 }
 
+// the user's name
+var firstName;
 
 $(document).ready(function() {
+
+    // get user data into JS, if available
+    $.ajax({
+        async: false,
+        dataType: "json",
+        url: '/users/getuser',     
+        success: function(response) { 
+            // process the response end
+            // if there was an error
+            if (response)
+            {
+                firstName = response.first_name;
+            }
+        }
+    }); //  ajax       
 
     $('#login-btn').click(function(e) {
         e.preventDefault();
 
+        // clear game if appropriate
+        if (typeof playing != 'undefined' && playing)
+        {
+            countdown = 0;
+        }
+
         $('#loginModal').modal();
 
         // focus cursor on first input element of modal
-        setTimeout(function(){
+        var focusMe = setTimeout(function(){
             $('#login_email').focus();
         }, 500);        
     });
@@ -29,9 +52,15 @@ $(document).ready(function() {
     $('#signup-btn').click(function(e) {
         e.preventDefault();
 
+        // clear game if appropriate
+        if (typeof playing != 'undefined' && playing)
+        {
+            countdown = 0;
+        }
+
         $('#signupModal').modal();
 
-        setTimeout(function(){
+        var focusMe = setTimeout(function(){
             $('#first_name').focus();
         }, 500);              
     });
@@ -39,7 +68,6 @@ $(document).ready(function() {
     $('#p_signup').click(function(e) {
         e.preventDefault();
 
-        console.log('click!');
         $.ajax({
             type: 'POST',
             dataType: "json",
@@ -53,22 +81,26 @@ $(document).ready(function() {
             },        
             beforeSend: function() {
                 // do the before send stuff
-
+                $('.display-error').html("sending..."); 
             },
             success: function(response) { 
-                // process the response end
+                console.log(response);
                 // if there was an error
-                if (typeof response.error != undefined)
+                if (typeof response.error != 'undefined')
                 {
                     $('.display-error').html(response.error);
                     $('.callout-error').fadeIn('slow');
+                }
+                else
+                {
+                    // reload the home page with a personal greeting
+                    document.location.href = '/';
                 }
             }
         }); //  ajax     
     });
 
     $('#p_login').click(function(e) {
-
         // prevent form from submitting
         e.preventDefault();
         
@@ -82,17 +114,19 @@ $(document).ready(function() {
             },
             beforeSend: function() {
                 // do the before send stuff
-                $('.display-error').html("sending..."); // just a test
+                $('.display-error').html("sending..."); 
             },
-            success: function(response) { 
-                // process the response end
-
-                console.log(response);                
+            success: function(response) {             
                 // if there was an error
                 if (typeof response.error != 'undefined')
                 {
                     $('.display-error').html(response.error);
                     $('.callout-error').fadeIn('slow');
+                }
+                else
+                {
+                    // reload the home page with a personal greeting
+                    document.location.href = '/';
                 }
             }
         }); // ajax     

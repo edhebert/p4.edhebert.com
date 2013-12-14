@@ -34,15 +34,6 @@ $(document).ready(function() {
     playgame();
 });
 
-// if the play button's clicked, play again!
-$('#playbtn').click(function(e){
-    // just reload the page (for now!)
-    // e.preventDefault();
-    // reset game variables
-    // resetGame();
-    //play the game
-   //  playgame();
-});
 
 // reposition welcome message on resize
 $(window).resize(function() {

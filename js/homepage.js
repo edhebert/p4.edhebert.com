@@ -11,6 +11,12 @@ $(document).ready(function() {
     // animate homepage elements (for those with JS)
     $('#first, #second, #playbtn').css({'display': 'none', 'visibility' : 'visible'});
 
+    if (typeof firstName != 'undefined')
+    {
+        $('#first').text('Hey, ' + firstName +'\'s here...');
+        $('#second').text('let\'s go!');
+    }
+
     setTimeout(function() {
         $('#first').fadeIn('slow');
     }, 500);
