@@ -38,8 +38,9 @@ $(document).ready(function() {
 
     $('#playbtn').click(function(e) {
         // if there's no user and no cookie, invite them to join via modal dialog
-        if (!checkCookie())
+        if (!checkCookie() && (typeof firstName == 'undefined'))
         {
+            console.log('firstName ='  + firstName);
             e.preventDefault();
             $('#myModal').modal();
         }
@@ -91,13 +92,6 @@ function checkCookie()
     }
     else 
     {
-        // return false
         return false;
-        anonymous=prompt("Please enter your name:","");
-
-        if (anonymous!=null && anonymous!="")
-        {
-            setCookie("anonymous",anonymous,365);
-        }
     }
 }
