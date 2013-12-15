@@ -27,7 +27,7 @@ li {
 }
 
 /* hide the gameboard at the beginning of game */
-#gameboard {
+#gameboard, #herocopy {
     display: none;
 }
 

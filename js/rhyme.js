@@ -110,26 +110,25 @@ function playgame() {
             rhymeArray = $.map(rhymes, function(value, index) {
                 return [value];
             });
+
+            $('#word, #word2').text(word);
+
+            // display the word in the middle of the page
+            $('#herocopy').html('<h2>The word to rhyme is:<br> <span id="word">' + word + '</span></h2>');
+            $('#herocopy').center();
+            $('#herocopy').fadeIn();
+
+            // perform the countdown / timing functions
+            countdown = 3;
+
+            // show intro word for 2 seconds and then start game timer
+            showWord = setTimeout(function() {
+                game = setInterval(updateCountdown, 1000);
+            }, 2000);    
+
         }
     }); // end ajax 
 
-    // return array when ajax call is complete
-    $(document).ajaxComplete(function() {
-        $('#word, #word2').text(word);
-
-        // display the word in the middle of the page
-        $('#herocopy').html('<h2>The word to rhyme is:<br> <span id="word">' + word + '</span></h2>');
-        $('#herocopy').center();
-        $('#herocopy').fadeIn();
-
-        // perform the countdown / timing functions
-        countdown = 3;
-
-        // show intro word for 2 seconds and then start game timer
-        showWord = setTimeout(function() {
-            game = setInterval(updateCountdown, 1000);
-        }, 2000);    
-    });
 }
 
 /* reset all game variables */
@@ -228,7 +227,3 @@ function updateCountdown() {
         }
     }
 };
-
-
-
-
