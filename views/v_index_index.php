@@ -16,8 +16,8 @@
                 <p>We'll track your stats, like number of games played, best score, and total time wasted!</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-custom" href="#"><i class="fa fa-lock"></i> Login</a>
-                <a class="btn btn-custom" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
+                <a class="btn btn-custom" id="nag-login" href="#"><i class="fa fa-lock"></i> Login</a>
+                <a class="btn btn-custom" id="nag-signup" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
                 <a class="btn btn-custom" href="/rhyme"><i class="fa fa-play-circle-o"></i> Continue</a>
             </div>
         </div><!-- /.modal-content -->

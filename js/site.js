@@ -32,7 +32,7 @@ $(document).ready(function() {
         }
     }); //  ajax       
 
-    $('#login-btn').click(function(e) {
+    $('#nag-login, #login-btn').click(function(e) {
         e.preventDefault();
 
         // clear game if appropriate
@@ -40,6 +40,9 @@ $(document).ready(function() {
         {
             countdown = 0;
         }
+
+        // hide the nag modal if open
+        $('#myModal').modal('hide');
 
         $('#loginModal').modal();
 
@@ -49,7 +52,7 @@ $(document).ready(function() {
         }, 500);        
     });
 
-    $('#signup-btn').click(function(e) {
+    $('#nag-signup, #signup-btn').click(function(e) {
         e.preventDefault();
 
         // clear game if appropriate
@@ -57,6 +60,9 @@ $(document).ready(function() {
         {
             countdown = 0;
         }
+
+        // hide the nag modal if open
+        $('#myModal').modal('hide');
 
         $('#signupModal').modal();
 
