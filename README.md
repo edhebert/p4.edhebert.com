@@ -3,7 +3,7 @@ p4.edhebert.com
 
 ## DWA Project 4 - RymrTymr
 
-RymrTymr is a word game web app that displays a random word from a dictionary, and challenging players to list as many rhyming words for it as possible in a 30 second span. Visitors are given the choice to either play games anonymously just for fun, or to log in and have their game performance stats monitored and displayed.
+RymrTymr is a word game web app that displays a random word from a dictionary, and challenges players to list as many rhyming words for it as possible in a 30 second span. Visitors are given the choice to either play games anonymously just for fun, or to log in and have their game performance stats monitored and displayed.
 
 It makes use of several key DWA topics, including MVC / framework PHP, JS / AJAX, and API usage.
 
