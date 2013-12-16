@@ -90,29 +90,42 @@ $(document).ready(function() {
             success: function(response) { 
                 console.log(response);
 
-                //calculate avg
-                var avg = response.points / response.games;
-                avg = avg.toFixed(1);
+                if (response.games > 0)
+                {
+                    //calculate avg
+                    var avg = response.points / response.games;
+                    avg = avg.toFixed(1);
 
-                // calculate seconds
-                // number of games times 30 sec/game
-                var totalSec = response.games * 30;
+                    // calculate seconds
+                    // number of games times 30 sec/game
+                    var totalSec = response.games * 30;
 
-                // code from http://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
-                var hours = parseInt( totalSec / 3600 ) % 24;
-                var minutes = parseInt( totalSec / 60 ) % 60;
-                var seconds = totalSec % 60;
+                    // code from http://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
+                    var hours = parseInt( totalSec / 3600 ) % 24;
+                    var minutes = parseInt( totalSec / 60 ) % 60;
+                    var seconds = totalSec % 60;
 
-                var time = "";
-                if (hours > 0)
-                    time = hours + " hours "
-                if (minutes > 0)
-                    time = time + minutes + " minutes ";
-                if (seconds > 0)
-                    time = time + seconds + " seconds"
+                    var time = "";
+                    if (hours > 0)
+                        if (hours == 1)
+                            time = time + minutes + " hour ";                        
+                        else
+                            time = hours + " hours "
+                    if (minutes > 0)
+                        if (minutes == 1)
+                            time = time + minutes + " minute ";
+                        else
+                            time = time + minutes + " minutes ";
+                    if (seconds > 0)
+                        time = time + seconds + " seconds"
 
-                // add the table to the modal
-                $('#stats-body').html('<table><tr><td><h3>Games played:</h3></td><td><h3><span class="badge">' + response.games + '</span></h3></td></tr><tr><td><h3>Average score:</h3></td><td><h3><span class="badge">' + avg + ' rhymes</span></h3></td></tr><tr><td><h3>High Score:</h3></td><td><h3><span class="badge">' + response.high_score + ' rhymes</span></h3></td></tr><tr><td><h3>Time wasted:</h3></td><td><h3><span class="badge">' + time + '</span></h3></td></tr></table>');
+                    // add the table to the modal
+                    $('#stats-body').html('<table><tr><td><h3>Games played:</h3></td><td><h3><span class="badge">' + response.games + '</span></h3></td></tr><tr><td><h3>Average score:</h3></td><td><h3><span class="badge">' + avg + ' rhymes</span></h3></td></tr><tr><td><h3>High Score:</h3></td><td><h3><span class="badge">' + response.high_score + ' rhymes</span></h3></td></tr><tr><td><h3>Time wasted:</h3></td><td><h3><span class="badge">' + time + '</span></h3></td></tr></table>');
+                } else {
+                    $('#stats-body').html('<h3>No games played yet!</h3>');
+                }
+
+
                 $('#statsModal').modal();
             }
         }); //  ajax   
