@@ -122,7 +122,7 @@ $(document).ready(function() {
                     // add the table to the modal
                     $('#stats-body').html('<table><tr><td><h3>Games played:</h3></td><td><h3><span class="badge">' + response.games + '</span></h3></td></tr><tr><td><h3>Average score:</h3></td><td><h3><span class="badge">' + avg + ' rhymes</span></h3></td></tr><tr><td><h3>High Score:</h3></td><td><h3><span class="badge">' + response.high_score + ' rhymes</span></h3></td></tr><tr><td><h3>Time wasted:</h3></td><td><h3><span class="badge">' + time + '</span></h3></td></tr></table>');
                 } else {
-                    $('#stats-body').html('<h3>No games played yet!</h3>');
+                    $('#stats-body').html('<h3 class="centered">No games played yet!</h3>');
                 }
 
 
