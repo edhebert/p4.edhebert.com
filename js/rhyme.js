@@ -117,6 +117,9 @@ function playgame() {
             $('#herocopy').html('<h2>The word to rhyme is:<br> <span id="word">' + word + '</span></h2>');
             $('#herocopy').center();
             $('#herocopy').fadeIn();
+            setTimeout(function(){
+                $('#herocopy').html('<h2 class="bignumber">Get Ready!</h2>');
+            }, 2000);
 
             // perform the countdown / timing functions
             countdown = 3;
@@ -124,7 +127,7 @@ function playgame() {
             // show intro word for 2 seconds and then start game timer
             showWord = setTimeout(function() {
                 game = setInterval(updateCountdown, 1000);
-            }, 2000);    
+            }, 3000);    
 
         }
     }); // end ajax 
