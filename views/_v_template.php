@@ -112,7 +112,7 @@
                         <h4 class="modal-title">Sign Up</h4>
                     </div>
                     <div class="modal-body centered">
-                        <form role="form" method="POST" action="/users/signup">
+                        <form role="form" method="POST" action="/users/stats">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter first name" <?php if(isset($_POST['first_name'])) echo "value = '". $_POST['first_name'] ."'"?>>
                             </div>
@@ -139,6 +139,38 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->         
-                                                                                                                                      
+
+        <!-- stats modal-->
+        <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog stats-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Stats for <?= $user->first_name . ' ' . $user->last_name ?></h4>
+                    </div>
+                    <div class="modal-body centered" id="stats-body">
+                        <table>
+                            <tr>
+                                <td><h3>Games played:</h3></td>
+                                <td><h3><span class="badge">100</span></h3></td>
+                            </tr>
+                            <tr>
+                                <td><h3>Average score:</h3></td>
+                                <td><h3><span class="badge">7 rhymes</span></h3></td>
+                            </tr>
+                            <tr>
+                                <td><h3>High Score:</h3></td>
+                                <td><h3><span class="badge">14 rhymes</span></h3></td>
+                            </tr>
+                            <tr>
+                                <td><h3>Time Wasted:</h3></td>
+                                <td><h3><span class="badge">10 minutes, 30 seconds</span></h3></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     </body>
 </html>

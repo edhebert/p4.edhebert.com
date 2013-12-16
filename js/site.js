@@ -32,6 +32,8 @@ $(document).ready(function() {
         }
     }); //  ajax       
 
+
+    // show login modal
     $('#nag-login, #login-btn').click(function(e) {
         e.preventDefault();
 
@@ -52,6 +54,7 @@ $(document).ready(function() {
         }, 500);        
     });
 
+    //show signup modal
     $('#nag-signup, #signup-btn').click(function(e) {
         e.preventDefault();
 
@@ -71,6 +74,11 @@ $(document).ready(function() {
         }, 500);              
     });
 
+    $('#stats-btn').click(function() {
+        $('#statsModal').modal();
+    });
+
+    // process signup
     $('#p_signup').click(function(e) {
         e.preventDefault();
 
@@ -106,6 +114,7 @@ $(document).ready(function() {
         }); //  ajax     
     });
 
+    // process login
     $('#p_login').click(function(e) {
         // prevent form from submitting
         e.preventDefault();
