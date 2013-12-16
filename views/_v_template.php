@@ -76,7 +76,7 @@
  
                       
         <!-- login modal-->
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -104,7 +104,7 @@
         </div><!-- /.modal --> 
 
         <!-- signup modal-->
-        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog signup-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -141,7 +141,7 @@
         </div><!-- /.modal -->         
 
         <!-- stats modal-->
-        <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModalLabel" aria-hidden="true">
+        <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog stats-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
