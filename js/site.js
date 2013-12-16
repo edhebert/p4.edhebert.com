@@ -88,7 +88,6 @@ $(document).ready(function() {
                 $('.display-error').html("sending..."); 
             },
             success: function(response) { 
-                console.log(response);
 
                 if (response.games > 0)
                 {
@@ -151,7 +150,6 @@ $(document).ready(function() {
                 $('.display-error').html("sending..."); 
             },
             success: function(response) { 
-                console.log(response);
                 // if there was an error
                 if (typeof response.error != 'undefined')
                 {

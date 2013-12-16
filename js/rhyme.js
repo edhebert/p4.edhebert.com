@@ -211,7 +211,6 @@ function updateCountdown() {
                             // do the before send stuff
                         },
                         success: function(response) { 
-                            console.log(response);
                             clearInterval(game);
                         }
                     }); //  ajax   
