@@ -46,6 +46,10 @@ li {
     font-size: 100px;
 }
 
+#word2 {
+    font-size: 65px;
+}
+
 
 /* set the display of editable regions of page */
 [contenteditable="true"] {  
