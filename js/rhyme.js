@@ -83,6 +83,7 @@ $(document).on("keydown", function(e) {
 });
 
 
+
 /**
  * Game Functions
  */
@@ -132,18 +133,6 @@ function playgame() {
         }
     }); // end ajax 
 
-}
-
-/* reset all game variables */
-
-function resetGame() {
-    clearInterval(game);
-    clearTimeout(showWord);
-    game = "";
-    showWord = "";
-    countdown = 0;
-    gameScore = 0;
-    playing = false;
 }
 
 /* performs all the looping / timing for the game */
