@@ -162,6 +162,14 @@ class users_controller extends base_controller {
 
     } 
 
+
+    public function stats() {
+        $user_details = DB::instance(DB_NAME)->select_row('SELECT * FROM users WHERE user_id ='.$this->user->user_id);
+        // send details to the view
+        echo json_encode($user_details);
+    }
+
+
     public function update() {
         if (!$_POST) 
         {
