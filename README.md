@@ -7,6 +7,15 @@ RymrTymr is a word game web app that displays a random word from a dictionary, a
 
 It makes use of several key DWA topics, including MVC / framework PHP, JS / AJAX, and API usage.
 
+## Summary of Key App Features
+
+* AJAX calls to c_users.php controller for all user MySQL user db interaction
+* AJAX calls to c_rhyme.php controller and the Wordnik API to retrieve a random word from the dictionary, and to find its rhyming words
+* JS setInterval() and setTimeout() functions handle all game clock and countdown functions
+* AJAX retrieval of user game statistics
+
+All functionality detailed below.
+
 ## Background
 
 Being a parent to three little ones, rhyming games are quite popular around the house nowadays. All the ideas came from there! While this version of RymrTymr is a little too hard for my oldest five year old to play, I invite you to enjoy the game. :)
@@ -19,22 +28,22 @@ Continuing on to the rhyme page, the game flashes the player's random word for t
 
 Anonymous users may play as often as they'd like, but no game stats will be tallied. Logged in users are invited to check their stats at any time. These statistics monitor games played, average score per game, high score, and total time wasted playing RymrTymmr.
 
-##  "Behind the Scenes" Functionality
+##  JavaScript & PHP Functionality
 
 The game makes heavy use of AJAX, and almost all data is transferred to/from the controllers in this way. As such, the game feels quick and seamless. 
 
 #### Wordnik API
 This game makes use of the Wordnik Dictionary API, found at http://developer.wordnik.com/ Among other features, the Wordnik API can be queried to return a list of rhymes for any given word.
 
-On the 'rhyme' page, AJAX calles are made to a controller that queries the Wordnik API for a random word from the dictionary. For this game, the request to Wordnik is manually adjusted to return only words between 4 and 16 characters, and for only those words that are somewhat common in English usage ($minCorpusCount > 100000). From there, a second query is made to Wordnik to return a list of rhymes for that word into a javascript array. If the random word has fewer than 6 rhymes, the word is rejected and the process restarted.  In that way, every random word chosen gives a the player the possibility to score at least 6 points each round.
+On the 'rhyme' page, AJAX calles are made to a PHP controller (c_rhyme.php) that queries the Wordnik API for a random word from the dictionary. For this game, the request to Wordnik is manually adjusted to return only words between 4 and 16 characters, and for only those words that are somewhat common in English usage ($minCorpusCount > 100000). From there, a second query is made to Wordnik to return a list of rhymes for that word into a javascript array. If the random word has fewer than 6 rhymes, the word is rejected and the process restarted.  In that way, every random word chosen gives a the player the possibility to score at least 6 points each round.
 
 NOTE: After playing quite a few rounds, I've noticed there are times when Wordnik fails to return a valid rhyme for the word. Kind of a bummer. Anyway, if curious to see how the brain works, you can "console.log(rhymeArray);" to see the entire array the Wordnik spit out to us.
 
 #### Log In / Sign Up
-The buttons for login and signup make AJAX calls to insert / retrieve necessary login info from the database. If a user submits bad info, an error message is fed from the controller directly back to the modal. If the input is successful, the home page is reloaded, and the user is personally welcomed to the game. 
+The buttons for login and signup make AJAX calls to the controller (c_users.php) to insert / retrieve necessary login info from the database. If a user submits bad info, an error message is fed from the controller directly back to the modal. If the input is successful, the home page is reloaded, and the user is personally welcomed to the game. 
 
 #### Game Timer
-The game makes use of both setTimeout() and setInterval() to control the game clock, and therefore reuses the same code to power both the pre-game countdown and the in-game timers. Pressing one of non-game buttons (e.g. Login or Signup) during the game will clearInterval(), stop the game, and pop up the requested dialog modal.
+The game makes use of both setTimeout() and setInterval() in JS to control the game clock, and therefore reuses the same code to power both the pre-game countdown and the in-game timers. Pressing one of non-game buttons (e.g. Login or Signup) during the game will clearInterval(), stop the game, and pop up the requested dialog modal.
 
 #### User Input
 Rather than using "input" elements, I decided to modify ordinary "li" elements via an HTML5 "contenteditable" attribute. In that way, I could more easily style the page, and better control the overall aesthetics of the game.
