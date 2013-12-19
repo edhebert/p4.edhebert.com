@@ -53,7 +53,7 @@
                     <div class="pull-right md-col-12">
                     <?php if ($user) : ?>
                         <a class="btn btn-custom" id="stats-btn" href="#"><i class="fa fa-bar-chart-o"></i> Check your stats, <?= $user->first_name ?>!</a>
-                        <a class="btn btn-custom" id="logout-btn" href="/users/logout"><i class="fa fa-coffee"></i> Log Out</a>                        
+                        <a class="btn btn-custom" id="logout-btn" href="/users/logout"><i class="fa fa-lock"></i> Log Out</a>                        
                     <?php else: ?>
                         <a class="btn btn-custom" id="login-btn" href="#"><i class="fa fa-lock"></i> Log In</a>
                         <a class="btn btn-custom" id="signup-btn" href="#"><i class="fa fa-pencil-square-o"></i> Sign Up</a>
